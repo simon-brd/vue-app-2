@@ -2,9 +2,14 @@
   <v-container>
     <v-row class="container-drawit">
       <v-col>
-        <h1>Welcome to Draw'it</h1>
-        <v-btn v-if="shuffled === false" elevation="2" @click="shuffleCards()">Démarrer une partie</v-btn>
-        <HelloWorld v-if="shuffled" :deck="deck" />
+        <h1>Bienvenue sur Draw'it</h1>
+        <v-row v-if="shuffled === false">
+          <v-col cols="4" md="4" sm="4" class="mx-auto my-3">
+            <v-text-field v-model="name" label="Nom du joueur"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-btn v-if="shuffled === false" :disabled="!name" elevation="2" @click="shuffleCards()">Démarrer une partie</v-btn>
+        <Draw v-if="shuffled" :deck="deck" :name="name" />
       </v-col>
     </v-row>
   </v-container>
@@ -12,7 +17,7 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Draw from '@/components/Draw.vue'
 import axios from 'axios'
 
 const baseApiURL = 'https://deckofcardsapi.com/api'
@@ -20,12 +25,13 @@ const baseApiURL = 'https://deckofcardsapi.com/api'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Draw
   },
   data: () => ({
     shuffled: false,
     deck: [],
-    cardDrawn: []
+    cardDrawn: [],
+    name: null
   }),
   methods: {
     shuffleCards: async function() {

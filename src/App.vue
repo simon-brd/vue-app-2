@@ -14,12 +14,13 @@
           transition="scale-transition"
           width="40"
         />
-        <span>Draw'it</span>
+        <span>DRAW'IT</span>
       </div>
 
       <v-spacer></v-spacer>
-      <router-link to="/">Home</router-link>
-      <router-link to="/test">Test</router-link>
+      <v-btn to="/" color="primary" class="mx-2">Jouer</v-btn>
+      <v-btn to="/rules" color="primary" class="mx-2">Règles</v-btn>
+      <v-btn to="/scoreboard" color="primary" class="mx-2">Tableau des scores</v-btn>
     </v-app-bar>
 
     <v-main>
