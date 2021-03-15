@@ -1,5 +1,7 @@
 # vue-app-2
 
+Project about betting on cards throwing.
+
 ## Project setup
 ```
 npm install
@@ -15,5 +17,10 @@ npm run serve
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### API
+
+This app use DeckOfCards API (see : https://deckofcardsapi.com/).
+
+This API returns shuffled decks of cards and throw cards one by one.
+
+
